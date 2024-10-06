@@ -15,7 +15,7 @@ body {
 
 .container {
   /* width: 100%; */
-  display: flex;
+  /* display: flex; */
   margin-left: 30px;
   margin-right: 30px;
   /* background-color: red; */
@@ -23,40 +23,82 @@ body {
 
 #pc_row {
   display: flex;
-  /* width: 100%; */
+  width: 100%;
+  margin-top: 100px;
+  margin-right: 30px;
+  margin-left: 30px;
 }
-.pcUp,
+
+.pc0,
+img {
+  width: 160px;
+}
+
 .pc0,
 .pc1,
 .pc2,
 .pc3,
 .pc4,
-[S5] {
+.pc5 {
   display: flex;
-  width: 40%;
+  width: 15%;
   border: 5px solid blue;
-  margin-top: 150px;
+  margin-top: 90px;
+  flex-wrap: wrap;
   flex-direction: column;
+  justify-content: space-around;
+  gap: 90px;
   padding: 30px;
 }
 
- {
+#player_row {
+  display: flex;
+  width: 100%;
+  margin-top: 100px;
+  margin-right: 30px;
+  margin-left: 30px;
 }
 
-.arowBtns {
+.player0,
+img {
+  width: 160px;
+}
+
+.player0,
+.player1,
+.player2,
+.player3,
+.player4,
+.player5 {
+  display: flex;
+  width: 15%;
+  border: 5px solid blue;
+  margin-top: 50px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 90px;
+  padding: 30px;
+}
+
+/* .arowBtns {
   width: 40%;
   display: flex;
   justify-content: space-between;
-}
+} */
 
-.arowBtns button {
+/* btns and images */
+
+/* .arowBtns button {
   margin-top: 10px;
   padding: 10px;
-  /* width: 10px; */
+  width: 10px;
 }
 .arowBtns img {
-  /* margin-top: 10px;
-  padding: 10px; */
+  margin-top: 10px;
+  padding: 10px;
   width: 50px;
-}
+} */
 /* end pc row */
+/* #reset {
+} */

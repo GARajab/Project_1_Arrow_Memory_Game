@@ -6,30 +6,74 @@
 
 /* Body start */
 body {
-  background-color: white;
-  height: 100vh;
+  /* background-color: white; */
+  /* height: 100vh; */
 }
 /* Body End */
 
 /* start pc row */
 
 .container {
-  /* width: 100%; */
-  /* display: flex; */
-  margin-left: 30px;
-  margin-right: 30px;
-  /* background-color: red; */
+  display: flex;
+  width: calc(100% -15px);
+  margin: 0 30px;
+  flex-direction: row;
 }
 
-#pc_row {
+.titleOfGame {
+  /* display: flex; */
+  justify-content: center;
+  margin-top: 90px;
+}
+
+.pc_row,
+.player_row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 120px;
+}
+
+.card {
+  /* width: calc(50% / 6); */
+  min-width: 150px;
+  /* flex-grow: 1; */
+  background-color: teal;
+  color: white;
+  text-align: center;
+  padding: 30px 5px;
+  border: 5px solid white;
+  display: block;
+  /* height: 100%; */
+}
+
+.card img {
+  width: 30px;
+}
+
+.rightLeftControllers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 5px;
+  /* height: 100%; */
+  /* flex-direction: column; */
+  /* width: calc(100% + 5px); */
+}
+
+.rightLeftControllers button {
+  display: flex;
+  height: 20px;
+  width: 30px;
+}
+/* #pc_row {
   display: flex;
   width: 100%;
   margin-top: 100px;
   margin-right: 30px;
   margin-left: 30px;
-}
+} */
 
-/* .pc0, */
+/* .pc0,
 .pc1,
 .pc2,
 .pc3,
@@ -45,22 +89,22 @@ body {
   justify-content: space-around;
   padding: 30px;
   margin-left: 10px;
-}
+} */
 
-#player_row {
+/* #player_row {
   display: flex;
   width: 100%;
   margin-top: 100px;
   margin-right: 30px;
   margin-left: 30px;
-}
+} */
 
 .player0,
 img {
-  width: 160px;
+  /* width: 160px; */
 }
 
-.player0,
+/* .player0,
 .player1,
 .player2,
 .player3,
@@ -76,7 +120,7 @@ img {
   gap: 90px;
   padding: 30px;
   margin-left: 10px;
-}
+} */
 
 /* .arowBtns {
   width: 40%;

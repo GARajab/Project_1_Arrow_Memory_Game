@@ -22,3 +22,170 @@
 10. I need a function to check the player boxes
 11. I need a function to count scores and other for rounds and correct/incorrect player boxes.
 12. I need a function to reset the full game except the score after each round.
+13. will use this function to update the stattus of the pc arraw as will as player array
+```JavaScript
+const updateBoard = () => {
+  for (let i = 0; i < board.length; i++) {
+    const squareEl = squareEls[i]
+    squareEl.textContent = board[i]
+  }
+}
+```
+14. will use this function to update the massage:
+```JavaScript
+const updateMessage = () => {
+  if (winner === false && tie === false) {
+    messageEl.innerHTML = ""
+  } else if (winner === false && tie === true) {
+    messageEl.innerHTML = "It Is Tie Please Try Again!"
+    showItIsTie()
+    showHideResetBtn()
+    tieNumbersCounter++
+    tries--
+    triesEl.innerHTML = tries
+    tieNumbersCounterEl.innerHTML = `Number Of Ties Is: ${tieNumbersCounter}`
+    tieEl.style.color = "#EF476F"
+    oPlayColor.style.color = "white"
+    xPlayColor.style.color = "white"
+  } else {
+    messageEl.innerHTML = `<img src=/images/fest-bgrmvd.png>  Player ( ${turn} ) Won!  <img src=/images/fest-bgrmvd.png>`
+    showHideResetBtn()
+    showHideGameOver()
+  }
+}
+```
+
+15. will use this function to handel the click:
+
+```JavaScript
+const handleClick = (event) => {
+  // Obtain the index of the clicked square
+  const squareIndex = parseInt(event.target.id)
+
+  // Check if the square is already taken or the game is over
+  if (board[squareIndex] !== "" || winner) {
+    return
+  }
+
+  // Update the board with the current player's move
+  board[squareIndex] = currentPlayer
+
+  checkForWinner()
+  checkForTie()
+  // switch between x and o
+  currentPlayer = currentPlayer === "X" ? "O" : "X"
+
+  updateBoard()
+  placePiece(squareIndex)
+  switchPlayerTurn()
+  updateMessage()
+}
+```
+
+16. will use this function to add ids to pc arrows
+
+```JavaScript
+const placePiece = (index) => {
+  board[index] = turn
+}
+
+```
+
+17. this function is the important one to check the combination true or false
+
+```JavaScript
+
+const checkForWinner = () => {
+  // for if loop to get the winning criteria no blank and a=b and a=c and b=c
+  for (let combo of winningCombos) {
+    const [a, b, c] = combo
+    if (board[a] !== "" && board[a] === board[b] && board[a] === board[c]) {
+      winner = true
+      winningCombination = [a, b, c]
+      highlightWinningCombination()
+      winnerCounter()
+      confetti()
+      break
+    }
+  }
+}
+
+```
+
+18. this function will count the score:
+
+```JavaScript
+const winnerCounter = () => {
+  if (currentPlayer === "X") {
+    xWinCount++
+    tries--
+  } else if (currentPlayer === "O") {
+    oWinCount++
+    tries--
+  }
+
+  oScoreVal.innerHTML = `Score Is: ${oWinCount}`
+  xScoreVal.innerHTML = `Score Is: ${xWinCount}`
+  triesEl.innerHTML = tries
+}
+
+```
+
+19. this function will use to hide or show items:
+
+```JavaScript
+const showHideResetBtn = () => {
+  if (animatedReset.style.display === "none") {
+    animatedReset.style.display = ""
+  } else {
+    oPlayColor.style.color = "white"
+    xPlayColor.style.color = "white"
+    animatedReset.style.display = "none"
+  }
+}
+
+```
+
+20. the most importatnt function to highlite the correct directions:
+
+```javascript
+
+const highlightWinningCombination = () => {
+  for (let index of winningCombination) {
+    const cell = document.getElementById(`${index}`)
+    cell.style.backgroundColor = "lightgreen"
+  }
+}
+
+```
+21. this function maybe used to reset winning colors:
+
+```javascript
+
+const rstWinColorBack = () => {
+  for (let i = 0; i < board.length; i++) {
+    const cell = document.getElementById(`${i}`)
+    cell.style.backgroundColor = ""
+    cell.textContent = ""
+  }
+}
+
+```
+
+22. this will be used for dark mode: 
+
+```javascript
+
+animatedReset.addEventListener("click", init)
+const setTheme = (theme) => (document.documentElement.className = theme)
+
+```
+
+23. this to handel the clickes:
+
+```javascript
+boards.forEach((cell) => {
+  cell.addEventListener("click", handleClick)
+})
+```
+
